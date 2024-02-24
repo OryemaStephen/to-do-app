@@ -28,12 +28,13 @@ input{
 }
 
 button {
-    margin: 3px auto;
+    margin: 5px;
     text-align: center;
     width: 60px;
     height: 30px;
     background: #d9d9d9;
     float: inherit;
+    border-radius: 5px;
 
 }
 
