@@ -36,12 +36,34 @@ function addToDo(){
         markButton.innerHTML='&#x2713;';
         itemList.appendChild(markButton);
         markButton.style.cssText = "margin-right: 20px; border: none;"
-        // markButton.style.marginRight = '20px';
-        // markButton.style.border = 'none';
 
         markButton.addEventListener('click', function(){
-            itemList.style.textDecoration= "line-through";
-        })
+            if (itemList.style.textDecoration === "line-through") {
+                itemList.style.textDecoration = "none";
+            } else {
+                itemList.style.textDecoration = "line-through";
+            }
+        });
+
+        //  Edit item
+        const editButton = document.createElement("button"); 
+        editButton.innerHTML = 'Edit';
+        itemList.appendChild(editButton);
+        editButton.style.cssText = "margin-right: 20px; border: none;";
+
+        let isEditing = false;
+
+        editButton.addEventListener('click', function() {
+            isEditing = !isEditing;
+            if (isEditing) {
+                itemList.setAttribute('contenteditable', true); 
+                editButton.textContent = "Save";
+            } else {
+                itemList.removeAttribute('contenteditable'); 
+                editButton.textContent = "Edit";               
+            }
+        });
+
 
         //clear input value
         inputTask.value="";   
